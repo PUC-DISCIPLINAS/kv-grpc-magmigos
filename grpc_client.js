@@ -35,15 +35,12 @@ function main() {
   switch(command) {
     case 'get': {
       client.get({key: key}, function(err, response) {
-        console.log(response.key);
         console.log(response.value);
       });
       break;
     }
     case 'insert': {
       client.insert({key: key, value: value}, function(err, response) {
-        console.log(response.key);
-        console.log(response.value);
       });
     }
     break;
