@@ -1,18 +1,17 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "io.grpc.examples.helloworld";
-option java_outer_classname = "HelloWorldProto";
-option objc_class_prefix = "HLW";
+option java_package = "io.grpc";
+option java_outer_classname = "GrpcProto";
+option objc_class_prefix = "GRPC";
 
 import "google/protobuf/struct.proto";
 
-package helloworld;
+package grpc;
 
-// The greeting service definition.
+// The grpc service definition.
 
-service Greeter {
-  // Sends a greeting
+service CrService {
   rpc Insert (UserMessage) returns (UserMessage) {}
   rpc Get (UserRequestedKey) returns (UserMessage) {}
   rpc GetAll (Empty) returns (UserList) {}  

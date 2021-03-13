@@ -1,6 +1,4 @@
-
-
-var PROTO_PATH = __dirname + '/view/helloworld.proto';
+var PROTO_PATH = __dirname + '/view/grpc.proto';
 
 var parseArgs = require('minimist');
 var grpc = require('@grpc/grpc-js');
@@ -13,7 +11,7 @@ var packageDefinition = protoLoader.loadSync(
      defaults: true,
      oneofs: true
     });
-var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
+var grpc_proto = grpc.loadPackageDefinition(packageDefinition).grpc;
 
 function main() {
   var argv = parseArgs(process.argv.slice(2), {
@@ -21,7 +19,7 @@ function main() {
   });
   var target = 'localhost:50051';
 
-  var client = new hello_proto.Greeter(target,
+  var client = new grpc_proto.CrService(target,
                                        grpc.credentials.createInsecure());
   var command;
   var key;
